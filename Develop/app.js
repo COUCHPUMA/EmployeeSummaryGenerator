@@ -79,9 +79,59 @@ const questions = [{
     ]
 }];
 
+const managerQuestion = [{
+        type: "input",
+        message: "What is your office number?",
+        name: "officeNumber"
+    }
+
+];
+
+const engineerQuestion = [{
+        type: "input",
+        message: "What is the employee's GitHUb username?",
+        name: "gitname"
+    }
+
+];
+
+const internQuestion = [{
+        type: "input",
+        message: "What school did the employee go to?",
+        name: "school"
+    }
+
+];
 
 
 
+
+
+
+let start =
+    async function adminStart() {
+
+        await Inquirer
+            .prompt(adminQuestions)
+
+        .then(async function(userData) {
+            let managerInfo = {
+                'name': userData.name,
+                'id': JSON.parse(userData.id),
+                'email': userData.email,
+                'role': 'employee',
+                'title': 'manager',
+                'officeNumber': '',
+                'gitname': '',
+                'github': '',
+                'school': ''
+            }
+            if (position = true) {
+                employeeInfo.push(managerInfo)
+                newemo()
+            }
+        })
+    }
 
 
 
