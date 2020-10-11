@@ -20,7 +20,7 @@ let employeeInfo = [];
 // ????
 const adminChoices = [{
     type: "list",
-    message: "What would you like to do?"
+    message: "What would you like to do?",
     name: "adminchoice",
     choices: [
         'Add an employee to the team?',
@@ -30,7 +30,54 @@ const adminChoices = [{
 
 
 
+const adminQuestions = [{
+        type: "input",
+        message: "Hello manager, What is your Name?",
+        name: "name"
+    }
 
+    {
+        type: "input",
+        message: "What is your id?",
+        name: "id"
+    },
+    {
+        type: "input",
+        message: "What is your email?",
+        name: "email"
+    },
+    {
+        type: "confirm",
+        message: "Are you a manager?",
+        name: "position",
+        choices: [
+            'Yes',
+            'No'
+        ]
+    }
+];
+
+const questions = [{
+    type: "input",
+    mesage: "What is the employee's name?",
+    name: "name"
+} {
+    type: "input",
+    mesage: "What is the employee's id?",
+    name: "id"
+} {
+    type: "input",
+    mesage: "What is the employee's email?",
+    name: "email"
+} {
+    type: "list",
+    mesage: "What is the employee's title?",
+    name: "title"
+    choices: [
+        'engineer',
+        'intern'
+    ]
+}];
 
 
 
