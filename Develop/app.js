@@ -9,6 +9,7 @@ const Inquirer = require("inquirer");
 const Jest = require('jest');
 const path = require('path');
 const fs = require('fs');
+const inquirer = require('inquirer');
 
 let managerArr = [];
 let engineerArr = [];
@@ -137,7 +138,91 @@ let start =
 
 
 
+let next =
+    async function adminNext() {
+        await Inquirer
+            .prompt(adminChoices)
+            .then(async function(answer) {
+                if (answers.adminchoice === 'add an employee to the team?') {
+                    employeeInfo.length = 0;
+                    Input()
+                }
+                if (answers.adminchoice === 'create HTML page?') {
+                    fs.createReadStream()
+                }
+            })
+    };
 
+let input =
+    async function init() {
+        await Inquirer
+            .prompt(questions)
+
+        .then(async function(userData) {
+            let userInfo = {
+                'name': userData.name,
+                'id': JSON.parse(userData.id),
+                'email': userData.email,
+                'role': 'employee', // DEFAULT
+                'title': userData.title,
+                'officeNumber': '',
+                'gitname': '',
+                'github': '',
+                'school': ''
+            }
+            employeeInfo.push(userInfo)
+            newemp()
+        })
+    };
+
+let newemo =
+    async function employeeprofile() {
+        const name = employeeInfo[0].name;
+        const id = employeeInfo[0].id;
+        const email = employeeInfo[0].email;
+        const role = employeeInfo[0].role;
+
+        const employee = new Employee(name, id, email, role)
+        classdir()
+    };
+
+let classdir =
+    async function bytitle() {
+
+        if (employeeInfo[0].title === "manager") {
+            buildManager()
+        }
+        if (employeeInfo[0].title === "engineer") {
+            buildEngineer()
+        }
+        if (employeeInfo[0].title === "intern") {
+            buildIntern()
+        }
+    };
+
+async function buildManager() {
+    await Inquirer
+        .prompt(managerQuestion)
+
+    .then(async function(userData) {
+        let managerAns = {
+            'officeNumber': JSON.parse(userData.officeNumber)
+        }
+        employeeInfo[0].officeNumber = managerAns.officeNumber;
+
+        const name = employeeInfo[0].name;
+        const id = employeeInfo[0].id;
+        const email = employeeInfo[0].email;
+        const role = employeeInfo[0].role;
+        const officeNumber = employeeInfo[0].officeNumber;
+
+        const manager = new Manager(name, id, email, officeNumber)
+        managerArr.push(manager);
+
+    })
+
+    next()
+};
 
 
 
