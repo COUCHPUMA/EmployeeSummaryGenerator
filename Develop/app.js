@@ -224,6 +224,47 @@ async function buildManager() {
     next()
 };
 
+async function buildEngineer() {
+    await Inquirer
+        .prompt(engineerQuestion)
+
+    .then(async function(userData) {
+            let engineerInfo = {
+                'gitname': userData.gitname;
+            }
+            employeeInfo[0].gitname = engineerInfo.gitname;
+        })
+        .then(aysnc
+            function() {
+
+                const gitname = employeeInfo[0].gitname;
+                let queryURL = 'https://api.github.com/users/' + gitname;
+                axios
+                    .get(queryURL).then(async function(response) {
+                        const engineerInfo = {
+                            "github": response.data.login,
+                        }
+
+                        employeeInfo[0].github = engineerInfo.github;
+
+                    })
+            })
+    setTimeout(function() {
+        const name = employeeInfo[0].name;
+        const id = employeeInfo[0].id;
+        const email = employeeInfo[0].email;
+        const role = employeeInfo[0].role;
+        const gitname = employeeInfo[0].gitname;
+        const github = employeeInfo[0].github;
+
+        const engineer = new Engineer(name, id, email, gitname, github)
+
+        engineerArr.push(engineer)
+    }, 2000);
+
+    next()
+};
+
 
 
 
