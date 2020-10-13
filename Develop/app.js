@@ -1,10 +1,10 @@
 // CONST
-const Employee = require('./test/Employee');
-const Manager = require('./test/Manager');
-const Engineer = require('./test/Engineer');
-const Intern = require('./test/Intern');
+const Employee = require('./liba/employee.js');
+const Manager = require('./liba/manager.js');
+const Engineer = require('./liba/engineer.js');
+const Intern = require('./liba/intern.js');
 // DEPEND
-const axios = require('axios');
+// const axios = require('axios');
 const Inquirer = require("inquirer");
 const Jest = require('jest');
 const path = require('path');
@@ -14,6 +14,7 @@ const inquirer = require('inquirer');
 let managerArr = [];
 let engineerArr = [];
 let internArr = [];
+3
 let employeeInfo = [];
 
 
